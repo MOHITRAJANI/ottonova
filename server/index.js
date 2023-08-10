@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // simple route to fetch cities
 app.get("/cities", (request, response) => {
   try{ 
-    response.status(OK).type('json').send(CITIES);
+    response.status(OK).json(CITIES);
   }catch (e) {
     response.status(BAD_REQUEST).send(e)
   }
