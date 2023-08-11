@@ -21,3 +21,25 @@ describe('Test cities api', () => {
         expect(response.body.cities).toHaveLength(8)
     })
 })
+
+
+describe('Test imageUrls api',  () => {
+    
+    it("should return 200", async() => {
+        const response = await request(baseURL).get("/imageUrl")
+        expect(response.statusCode).toBe(200)
+        expect(response.ok).toBe(true)
+        expect(response.error).toBe(false)
+    })
+
+    it("should return image urls", async () => {
+        const response = await request(baseURL).get('/imageUrl')
+        expect(response.body).not.toBe(null)
+    })
+
+    it("should return exactly 32 results", async () => {
+        const response = await request(baseURL).get('/imageUrl')
+        expect(Object.keys(response.body)).toHaveLength(32)
+    })
+    
+})
