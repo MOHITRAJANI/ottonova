@@ -1,31 +1,74 @@
 <template>
-  <Carousel :items-to-show="1">
-    <Slide v-for="slide in 10" :key="slide">
-      {{ slide }}
+   <Carousel v-if="cities && cities.length > 0" :itemsToShow="1" :wrapAround="true" :transition="500">
+    <Slide v-for="(city, key) in cities" :key="key"  :data-testid="`slide-${key}`">
+      <div class="backimage" :style="imageUrls && imageUrls.length > 0 ? {background: `url(${imageUrls[city.name]}) no-repeat center center fixed`, backgroundSize: 'cover', opacity: 0.9} : {backgroundColor: 'black'}">
+        <div class="carousel__item">
+          <CarouselData :city="city" :imageUrls="imageUrls" />
+        </div>  
+    </div>
     </Slide>
-
     <template #addons>
-      <navigation />
+      <navigation/>
       <pagination />
     </template>
   </Carousel>
 </template>
 
 <script>
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import axios from 'axios'
 
+// Import external components 
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import CarouselData from './components/CarouselData.vue'
 export default {
   name: 'App',
   components: {
     Carousel,
     Slide,
     Pagination,
-    Navigation
-  }
+    Navigation,
+    CarouselData
+  },
+  data() {
+    return {
+      cities: [],
+      imageUrls: []
+    }
+  }, 
+  methods: {
+        // Fetch all cities from backend api
+        async getCities() {
+            await axios.get('http://localhost:3000/cities').then((res) => {
+                this.cities = res.data.cities
+            }).catch((error) => alert(`Error: ${error}`))
+        },
+        
+        // Fetch list of imageUrls from backend for every image.
+        async setBackgroundImages() {
+            await axios.get(`http://localhost:3000/imageUrl`).then(res => {
+              this.imageUrls = res.data
+          }).catch((error) => {
+            alert(`Error: ${error}`)
+          })
+        }
+    },
+    mounted() {
+        this.getCities()
+        this.setBackgroundImages()
+    },
 }
 </script>
 
 <style>
+
+/* 
+  Styles for background image div
+*/
+.backimage {
+  width: 100%;
+  height: 100%;
+}
+
 /* 
   Styles for carousel
 */
