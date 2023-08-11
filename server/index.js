@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route to fetch cities
-app.get("/cities", (request, response) => {
+app.get("/cities", (_, response) => {
   try{ 
     response.status(OK).json(CITIES);
   }catch (e) {
@@ -34,7 +34,7 @@ app.get("/cities", (request, response) => {
 });
 
 // route to fetch image urls
-app.get("/imageUrl", async (request, response) => {
+app.get("/imageUrl", async (_, response) => {
     try{
         response.status(OK).send(IMAGES)
       }catch(e) {
