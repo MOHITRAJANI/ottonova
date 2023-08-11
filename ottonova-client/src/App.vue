@@ -26,6 +26,9 @@ export default {
 </script>
 
 <style>
+/* 
+  Styles for carousel
+*/
 .carousel__prev {
   border: 2px solid white;
 }
