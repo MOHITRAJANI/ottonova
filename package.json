@@ -1,0 +1,12 @@
+{
+    "name": "Ottonova",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "concurrently": "^8.2.0"
+    },
+    "scripts": {
+        "start": "concurrently \"cd ottonova-client && npm run serve \" \" cd server && npm run start\"  ",
+        "initialize": "concurrently \" cd ottonova-client && npm install \" \" cd server &&  npm install\" "
+    }
+}
