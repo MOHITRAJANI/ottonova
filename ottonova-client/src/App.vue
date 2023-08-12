@@ -63,6 +63,13 @@ export default {
 <style>
 
 /* 
+  Styles for background color of entire app
+*/
+#app {
+  background-color: burlywood;
+}
+
+/* 
   Styles for background image div
 */
 .backimage {
