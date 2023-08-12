@@ -1,7 +1,7 @@
 <template>
    <Carousel v-if="cities && cities.length > 0" :itemsToShow="1" :wrapAround="true" :transition="500">
     <Slide v-for="(city, key) in cities" :key="key"  :data-testid="`slide-${key}`">
-      <div class="backimage" :style="imageUrls && imageUrls.length > 0 ? {background: `url(${imageUrls[city.name]}) no-repeat center center fixed`, backgroundSize: 'cover', opacity: 0.9} : {backgroundColor: 'black'}">
+      <div class="backimage" :style="{background: `url(${imageUrls[city.name]}) no-repeat center center fixed`, backgroundSize: 'cover', opacity: 0.9}">
         <div class="carousel__item">
           <CarouselData :city="city" :imageUrls="imageUrls" />
         </div>  
@@ -47,6 +47,7 @@ export default {
         async setBackgroundImages() {
             await axios.get(`http://localhost:3000/imageUrl`).then(res => {
               this.imageUrls = res.data
+              console.log("this.imageUrls ", this.imageUrls)
           }).catch((error) => {
             alert(`Error: ${error}`)
           })
