@@ -1,6 +1,17 @@
 # ottonova
-ottonova JavaScript Coding Challenge
 
+**HOW TO START THE PROJECT**
+1. git clone https://github.com/MOHITRAJANI/ottonova.git
+2. cd ottonova
+3. In a terminal run: npm install
+4. Then run: **npm run initialize** (This will take a couple of minutes but will install all dependencies of the project in the respective folders.)
+5. Finally run: **npm start** (This will concurrently start the backend on PORT 3000 and Frontend on PORT 8080)
+6. In order to run the tests; first run step 5 so that the server is running to send data through REST, after the server is running, **npm run test**
+7. Finally, in order to check the test coverage powerd by V8, again do Step 5 and when the server is running, run: **npm run coverage**
+
+**ottonova JavaScript Coding Challenge**
+
+The Task:
 
 **The gist**: Implement a backend to return JSON data and a frontend to display it.
 1. Try to solve the task as you would in your day to day work.

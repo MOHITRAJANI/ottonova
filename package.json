@@ -7,6 +7,8 @@
     },
     "scripts": {
         "start": "concurrently \"cd ottonova-client && npm run serve \" \" cd server && npm run start\"  ",
-        "initialize": "concurrently \" cd ottonova-client && npm install \" \" cd server &&  npm install\" "
+        "initialize": "concurrently \" cd ottonova-client && npm install \" \" cd server &&  npm install\" ",
+        "test": "concurrently \" cd ottonova-client && npm run test \" \" cd server &&  npm run test\" ",
+        "coverage": "cd ottonova-client && npm run coverage"
     }
 }

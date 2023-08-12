@@ -40,7 +40,7 @@ describe("App tests", () => {
   test('Navigation buttons are present', () => {
     setTimeout(() => {
       getAllByText('Sydney')
-    }, 2000)
+    }, 3000)
   })
 
   test('all the data for the provided city is present', async () => {
@@ -52,7 +52,7 @@ describe("App tests", () => {
       getAllByText("Continent: Australia")
       getAllByText("Latitude: -33.865143")
       getAllByText("Founded: 1788")
-    }, 2000)
+    }, 3000)
     
   })
 
@@ -61,6 +61,6 @@ describe("App tests", () => {
       getAllByTestId('landmark-0')
       getAllByTestId('landmark-1')
       getAllByTestId('landmark-2')
-    }, 2000)  
+    }, 3000)  
   })
 })

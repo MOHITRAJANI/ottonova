@@ -10,3 +10,5 @@ npm-debug.log*
 
 #package-lock
 package-lock.json
+
+/server/coverage
